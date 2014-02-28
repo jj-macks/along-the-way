@@ -1,0 +1,61 @@
+/*Embedding Non-Standard Fonts*/
+@font-face {
+	font-family: 'GeosansLight';
+	src: url(fonts/GeosansLight.woff) format('woff');
+}
+
+/*Styling for HTML elements*/
+html, body {
+	height: 100%;
+    margin: 0px;
+    padding: 0px
+}
+
+input {
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+
+	font-family: 'GeosansLight';
+	font-size: 90%;
+	color: #000000;
+}
+
+/*Styling for specific HTML segments*/
+/*In alphabetical order by ID*/
+#container {
+	position: absolute;
+	top: 5%;
+	left: calc(50% - 28em);
+}
+
+#destinations-form {
+	padding: .5em;
+}
+
+#initial-destinations-overlay {
+	height: auto;
+	width: 42.25em;
+	margin: 0 auto;
+
+	background-color: #FFFFFF;
+
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-style: solid;
+	border-width: 1px;
+
+	font-family: 'GeosansLight';
+	font-size: 125%;
+	color: #000000;
+	
+	z-index: 100;
+}
+
+#map-canvas {
+	height: 100%;
+    margin: 0px;
+    padding: 0px;
+	z-index: 0;
+}
