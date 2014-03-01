@@ -1,0 +1,195 @@
+/*
+	Color Palette
+	http://www.colourlovers.com/palette/148712/Gamebookers
+
+	Orange -> #FF9900
+	Ash -> #424242
+	Light grey -> #E9E9E9
+	Grey -> #BCBCBC
+	Ocean blue -> #3299BB
+*/
+
+/*Embedding Non-Standard Fonts*/
+@font-face {
+	font-family: 'GeosansLight';
+	src: url(../fonts/GeosansLight.woff) format('woff');
+}
+
+/*Styling for HTML elements*/
+html, body {
+	height: 100%;
+    margin: 0px;
+    padding: 0px
+}
+
+input {
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+
+	font-family: 'GeosansLight';
+	font-size: 90%;
+	color: #000000;
+}
+
+/*Styling for specific HTML segments*/
+/*In alphabetical order by ID*/
+#container {
+	position: absolute;
+	top: 5%;
+	left: calc(50% - 20em);
+}
+
+#destinations-form {
+	padding: .5em;
+}
+
+#initial-destinations-overlay {
+	height: auto;
+	margin: 0 auto;
+
+	background-color: #424242;
+
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-style: solid;
+	border-width: 1px;
+
+	font-family: 'GeosansLight';
+	font-size: 125%;
+	color: #FF9900;
+	z-index: 100;
+}
+
+#map-canvas {
+	height: 100%;
+  padding: 0px;
+	z-index: 0;
+}
+
+#search-panel {
+	width: 55px;
+	height: 100%;
+	float: left;
+	background-color: #3299BB;
+}
+
+@media screen and (max-width: 900px) {
+	.destination {
+		display: block;
+	}
+
+	#initial-destinations-overlay {
+		width: 450px;
+	}
+
+	#container {
+		position: absolute;
+		left: 20%;
+	}
+}
+
+@media screen and (max-width: 550px) {
+	#initial-destinations-overlay {
+		width: 300px;
+	}
+	input {
+		font-size: 50%
+	}
+}
+
+#adv_search {
+	display: none;
+	color: #424242;
+	margin-left: 0;
+	margin-right: 0;
+	height: 100%;
+}
+
+#adv_search h3 {
+	text-shadow: 1px 1px 1px #FF9900;
+	margin-left: 8%;
+	margin-top: 50px;
+	margin-bottom: 0px;
+	height: 40px;
+}
+
+#search-panel.expandSearch {
+	width: 12%;
+	min-width: 165px;
+}
+
+#search-panel label {
+	font-weight: bold;
+	display: inline-block;
+}
+
+#search-panel label.price {
+	width: 70px;
+}
+
+.search-input {
+	padding: 5%;
+	padding-top: 8%;
+	padding-bottom: 8%;
+}
+
+.search-shadow {
+	-moz-box-shadow:inset 0px 0px 10px #424242;
+  -webkit-box-shadow:inset 0px 0px 10px #424242;
+  box-shadow:inset 0px 0px 10px #424242;
+}
+
+.search-input .price {
+	font-weight: bolder;
+	margin: 5%;
+}
+
+#filters {
+	height: 100%;
+}
+
+/* Currently not in use. For icon bars menu toggle */
+.icon-bar{
+  display: block;
+  width: 84%;
+  height: 8px;
+  border-radius: 2px;
+  margin-top: 6px;
+  margin-left: 8%;
+  background: #FF9900;
+  margin-right: 20px;
+  max-width: 45px;
+}
+
+.navicon {
+	color: #FF9900;
+	font-size: 250%;
+}
+
+.navicon.left {
+	margin-left: 10%;
+	display: block;
+}
+
+.expandSearch .navicon.left {
+	display: none;
+}
+
+.navicon.right {
+	width: 100%;
+	text-align: right;
+	margin-right: 10%;
+	float: right;
+	display: none;
+}
+
+.expandSearch .navicon.right {
+	display: block;
+}
+
+#pull {
+	text-decoration: none;
+	display: block;
+}
