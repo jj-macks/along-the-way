@@ -76,7 +76,6 @@ function placesCallback(results, status){
       var place = results[i];
       createMarker(results[i]);
     }
-    console.log(results);
   }
 }
 
@@ -84,7 +83,9 @@ function createMarker(place) {
   var placeLoc = place.geometry.location;
   var marker = new google.maps.Marker({
     map: map,
-      position: place.geometry.location
+    position: placeLoc, 
+    title: place.name,
+    icon: place.icon
   });
 
   google.maps.event.addListener(marker, 'click', function() {
