@@ -33,5 +33,19 @@ $( document ).ready(function() {
             e.preventDefault();
         };
     });
+    // Searches set of 10 "route boxes" on click
+    $("#next-box-results").click(function(e) {
+
+      e.preventDefault();
+
+      searchTenBoxes(boxes);
+    });
+
+    $("#next-circle-results").click(function(e) {
+
+      e.preventDefault();
+
+      searchTenCircles(centers);
+    });
 
 });
