@@ -143,28 +143,5 @@
             </form>
          </div>
       </div> 
-
-         
-
-      <!--App Scripts-->
-
-      <script>
-         $(document).ready( function() {
-
-            $('#pull').click( function(e) {
-               e.preventDefault();
-               $('#adv_search').fadeToggle();
-               $('#search-panel').toggleClass('expandSearch');
-            });
-
-            $('#push').click( function(e) {
-               e.preventDefault();
-               console.log('Registering click...');
-               $('#results-view').fadeToggle();
-               $('#results-window').toggleClass('expandResults');
-               $( "#accordion" ).accordion();
-            });
-         });
-      </script>
    </body>
 </html>
