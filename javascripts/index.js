@@ -48,4 +48,25 @@ $( document ).ready(function() {
       searchTenCircles(centers);
     });
 
+    // Add click listener to the left side arrow to open and close 
+    // the advanced search panel
+    $('#pull').click( function(e) {
+       e.preventDefault();
+       // Toggle the advanced search form
+       $('#adv_search').fadeToggle();
+       // Toggle the opening and closing of the search panel
+       $('#search-panel').toggleClass('expandSearch');
+    });
+
+    // Add click listener to the right side arrow to open and close
+    // the advanced search panel
+    $('#push').click( function(e) {
+       e.preventDefault();
+       // Toggle displaying the results
+       $('#results-view').fadeToggle();
+       // Toggle opening and close the results window
+       $('#results-window').toggleClass('expandResults');
+       // Instantiate the accordion
+       $( "#accordion" ).accordion();
+    });
 });
