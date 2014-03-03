@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 var directionsDisplay, map, 
     boxes, centers, 
     startAtBox = startAtCenter = 0,
     tripResults = [],
     placesService, // have to wait for map to be defined to define
     isFirst = true;
+var directionsDisplay;          //global to be defined later
+var map,
+    boxes, centers,
+    startAtBox = 0,
+    startAtCenter = 0;
+var placesService;              // have to wait for map to be defined to define
 var directionsService = new google.maps.DirectionsService();
 var rboxer = new RouteBoxer();  // draws boxes around the route
 var distance = 5;              // km, we need to set this to be filled by an event listener
@@ -30,7 +37,7 @@ function calcRoute(newStart, newEnd) {
   };
   directionsService.route(request, function(result, status) {
     if (status == google.maps.DirectionsStatus.OK) {
-      directionsDisplay.setDirections(result);
+      directionsDisplay.setDirections(result); //puts the line on the map
       // Box the overview path of the first route
       var path = result.routes[0].overview_path;  // Contains all the GPS coordinates
       centers = path;
@@ -80,6 +87,7 @@ function placesCallback(results, status){
   }
 }
 
+// creates markers for each result, but can also get result[icon] or whatever
 function createMarker(place) {
   var placeLoc = place.geometry.location;
   var marker = new google.maps.Marker({
@@ -101,14 +109,25 @@ function searchTenBoxes(boxes) {
       rankby: distance};
     //placesService.nearbySearch(request, placesCallback);
     placesService.radarSearch(request, placesCallback);
+    var bounds = boxes[i]; //boxes around route that boxer returned
+    var request = {bounds: bounds, keyword: ['store']};
+    $("#next-box-results").prop("disabled", true);
+    console.log(startAtBox);
+    placesService.nearbySearch(request, placesCallback);
   }
   startAtBox += 10;
-}
+  setTimeout(function(){
+    //use this to turn off button until all boxes are loaded
+    searchTenBoxes(boxes);
+    //use this to have user click after delay for next 10 boxes
+    //$("#next-box-results").prop("disabled", false);
+  },2000);
+};
 
 function searchTenCircles(centers) {
   for (var i = startAtCenter; i < startAtCenter + 10; i += 1) {
     console.log(i);
-    var center = new google.maps.LatLng(centers[i].d, centers[i].e, true); 
+    var center = new google.maps.LatLng(centers[i].d, centers[i].e, true);
     var request = {location: center, radius: 30};
     placesService.nearbySearch(request, placesCallback);
   }
@@ -119,10 +138,10 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 
 /*
-// Credits: 
+// Credits:
 // Majority of the code has been adapted from sample codes available at:
 // https://developers.google.com/maps/documentation/javascript/examples/
-// Code for draw_initialRoute adapted from: 
+// Code for draw_initialRoute adapted from:
 // http://www.sitepoint.com/find-a-route-using-the-geolocation-and-the-google-maps-api/
 
 var map;
@@ -220,7 +239,7 @@ function draw_initialRoute(start, end) {
           alert("Sorry - unable to retrieve your route.");
         }
       }
-      );    
+      );
 
 }
 
