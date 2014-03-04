@@ -23,7 +23,7 @@ $( document ).ready(function() {
           $("ul").append("<li>" + places[1] + "</li>");
 
           //$("#initial-destinations-overlay").remove();    // removes the overlay containing the form
-          calcRoute(places[0], places[1]);                  // draws the initial route between the start and end destinations
+          calcRoute(places);                  // draws the initial route between the start and end destinations
           //locationMarker.setMap(null);                    // removes the giant pin marker
           //draw_initialRoute(places[0], places[1]);        // draws the initial route between the start and end destinations 
           
@@ -48,6 +48,8 @@ $( document ).ready(function() {
       index++;
       $("ul").append("<li>" + place + "</li>");
       $("#add-destination").val('');
+      directionsDisplay.set('directions', null);
+      calcRoute(places);  
 
       console.log(places);
 
@@ -68,6 +70,8 @@ $( document ).ready(function() {
     console.log(places);          // debugger [Can remove from final version]
 
     $(this).remove();
+    directionsDisplay.set('directions', null);
+    calcRoute(places);  
     e.preventDefault();
   });
     

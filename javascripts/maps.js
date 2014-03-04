@@ -23,15 +23,17 @@ function initialize() {
   directionsDisplay.setMap(map);
 }
 
-function calcRoute(cities) {
+function calcRoute(places) {
   placesService = new google.maps.places.PlacesService(map);
-  var start = cities[0];
-  var end = cities[1];
-  // var waypts = [];
-  //for (var i = 2; i < cities.length; i++) {
-    //waypts.push(cities[i]);
-  //}
-  var waypts = [{location: '855 N 80th Street, seattle, wa'}, {location: 'university of washington, seattle, wa'}];
+  var start = places[0];
+  var end = places[1];
+  var waypts = [];
+  for (var i = 2; i < places.length; i++) {
+    var point = {};
+    point.location = places[i];
+    waypts.push(point);
+  }
+  //var waypts = [{location: '855 N 80th Street, seattle, wa'}, {location: 'university of washington, seattle, wa'}];
 
   var request = {
     origin: start,
