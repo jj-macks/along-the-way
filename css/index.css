@@ -18,8 +18,8 @@
 /*Styling for HTML elements*/
 html, body {
 	height: 100%;
-  margin: 0px;
-  padding: 0px
+  	margin: 0px;
+  	padding: 0px
 }
 
 input {
@@ -38,7 +38,7 @@ input {
 */
 #map-canvas {
 	height: 100%;
-  padding: 0px;
+  	padding: 0px;
 	z-index: 0;
 }
 
@@ -110,42 +110,49 @@ input {
 	height: 100%;
 	float: left;
 	background-color: #3299BB;
+	font-family: 'GeosansLight';
 }
 
 #adv_search {
 	display: none;
-	color: #424242;
+	color: #FFFFFF;
 	margin-left: 0;
 	margin-right: 0;
 	height: 100%;
 }
 
-#adv_search h3 {
-	text-shadow: 1px 1px 1px #FF9900;
+#adv_search h2 {
+	text-shadow: 1px 1px 1px #424242; 
 	margin-left: 8%;
 	margin-top: 50px;
 	margin-bottom: 0px;
 	height: 40px;
+	color: #FF9900;
 }
 
 #search-panel label {
 	font-weight: bold;
 	display: inline-block;
+	margin-left: 2.5%;
+	color: #FFFFFF;
 }
 
 #search-panel label.price {
 	width: 70px;
 }
 
-#filters {
-	height: 100%;
+#filter-accordion {
+	margin-top: 5%;
+	margin-left: 4.25%;
+}
+
+#party-list {
+	margin-top: 2.5%;
 }
 
 /* Search panel CSS helper class */
 .search-input {
 	padding: 5%;
-	padding-top: 8%;
-	padding-bottom: 8%;
 }
 
 .search-input .price {
@@ -155,7 +162,7 @@ input {
 
 /* Expanding the search panel */
 #search-panel.expandSearch {
-	width: 15%;
+	width: 20%;
 	min-width: 185px;
 }
 
@@ -200,6 +207,7 @@ input {
 	width: 55px;
 	background-color: #FF9900;
 	float: right;
+	font-family: 'GeosansLight';
 }
 
 #results-window.expandResults {
@@ -247,25 +255,25 @@ input {
 
 /* ACCORDION */
 /*
- color: #eb8f00; replaced with #FF9900
- blue text: #1c94c4; replaced with #3299BB
- light grey: #f6f6f6; replaced with #E9E9E9
- grey: #cccccc; replaced with #BCBCBC
-	black: #333333; -> replaced with #424242
- */
+color: #eb8f00; replaced with #FF9900
+blue text: #1c94c4; replaced with #3299BB
+light grey: #f6f6f6; replaced with #E9E9E9
+grey: #cccccc; replaced with #BCBCBC
+black: #333333; -> replaced with #424242
+*/
 
 /*
 	GENERAL HELPER CLASSES
 */
 .horizontal-borders {
-	border-top: 2px solid #424242;
-	border-bottom: 2px solid #424242;
+	/* border-top: 1px solid #424242; */
+	border-bottom: 1px solid #424242;
 	/*
 	-> adds shadows to the boxes
 	-moz-box-shadow:inset 0px 0px 10px #424242;
-  -webkit-box-shadow:inset 0px 0px 10px #424242;
-  box-shadow:inset 0px 0px 10px #424242;
-  */
+  	-webkit-box-shadow:inset 0px 0px 10px #424242;
+  	box-shadow:inset 0px 0px 10px #424242;
+  	*/
 }
 
 
