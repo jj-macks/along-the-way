@@ -65,6 +65,7 @@ $(document).on("click", "li", function(e) {
   console.log(place);           // debugger [Can remove from final version]
 
   _.pull(places, place);
+  index--;
 
   console.log(places);          // debugger [Can remove from final version]
 
