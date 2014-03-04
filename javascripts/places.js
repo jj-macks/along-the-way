@@ -19,9 +19,13 @@ function placesCallback(results, status){
       createMarker(place);
       //now logs the name of each place in the console
       console.log("json " + results[i].name);
+      if(!tripResults[i]) {
+        tripResults[i] = [];
+      }
       createMarker(place);
-      //tripResults[i].push(place);
+      tripResults[i].push(place);
     }
+    makeTemplate();
   }
 }
 
