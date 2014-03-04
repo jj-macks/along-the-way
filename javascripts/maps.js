@@ -1,6 +1,6 @@
 var directionsDisplay;          //global to be defined later
-var map, 
-    boxes, centers, 
+var map,
+    boxes, centers,
     startAtBox = 0,
     startAtCenter = 0;
 var placesService;              // have to wait for map to be defined to define
@@ -105,7 +105,7 @@ function searchTenBoxes(boxes) {
 function searchTenCircles(centers) {
   for (var i = startAtCenter; i < startAtCenter + 10; i += 1) {
     console.log(i);
-    var center = new google.maps.LatLng(centers[i].d, centers[i].e, true); 
+    var center = new google.maps.LatLng(centers[i].d, centers[i].e, true);
     var request = {location: center, radius: 30};
     placesService.nearbySearch(request, placesCallback);
   }
@@ -116,10 +116,10 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 
 /*
-// Credits: 
+// Credits:
 // Majority of the code has been adapted from sample codes available at:
 // https://developers.google.com/maps/documentation/javascript/examples/
-// Code for draw_initialRoute adapted from: 
+// Code for draw_initialRoute adapted from:
 // http://www.sitepoint.com/find-a-route-using-the-geolocation-and-the-google-maps-api/
 
 var map;
@@ -217,7 +217,7 @@ function draw_initialRoute(start, end) {
           alert("Sorry - unable to retrieve your route.");
         }
       }
-      );    
+      );
 
 }
 

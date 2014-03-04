@@ -20,13 +20,13 @@
          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtMb3vQ1vBJFaGNAis_wcWMx18nDTRAWA&libraries=places&sensor=false">
       </script>
       <!--Google Route Boxes-->
-      <script type="text/javascript" 
+      <script type="text/javascript"
          src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/routeboxer/src/RouteBoxer.js"></script>
 
       <!-- Map Scripts -->
       <script type="text/javascript" src="javascripts/index.js"></script>
       <script type="text/javascript" src="javascripts/maps.js"></script>
-      
+
    </head>
 
    <body>
@@ -53,8 +53,8 @@
                <input type="text" id="radius" placeholder="Distance from route"></input>
             </div>
             <div class="search-input horizontal-borders">
-               <label>Max price</label>
-               <select id="max-price" class="price">
+               <label>Min price</label>
+               <select id="min-price" class="price">
                   <option value="" selected></option>
                   <option value="0">-</option>
                   <option value="1">$</option>
@@ -63,8 +63,8 @@
                   <option value="4">$$$$</option>
                </select>
                <br>
-               <label>Min price</label>
-               <select id="min-price" class="price">
+               <label>Max price</label>
+               <select id="max-price" class="price">
                   <option value="" selected></option>
                   <option value="0">-</option>
                   <option value="1">$</option>
@@ -77,29 +77,23 @@
                <label>Filtering</label>
                <div>
                   <hr>
-                  <input type="checkbox" value="art_gallery">Art Galleries</input>
+                  <input type="checkbox" name= "types" value="food, grocery_or_supermarket, liquor_store, meal_delivery, meal_takeaway, restaurant">Food</input>
                   <br>
-                  <input type="checkbox" value="aquarium">Aquariums</input>
+                  <input type="checkbox" name= "types" value="bakery, cafe">Cafe & Bakery</input>
                   <br>
-                  <input type="checkbox" value="amusement_park">Amusement Parks</input>
+                  <input type="checkbox" name= "types" value="book_store, clothing_store, department_store, electronics_store, furniture_store, hardware_store, jewelry_store, shopping_mall, shoe_store">Shopping</input>
                   <br>
-                  <input type="checkbox" value="casino">Casinos</input>
+                  <input type="checkbox" name= "types" value="amusement_park, aquarium, art_gallery, bowling_alley, casino, movie_theater, museum, park, zoo">Attractions</input>
                   <br>
-                  <input type="checkbox" value="church">Churches</input>
+                  <input type="checkbox" name= "types" value="lodging, rv_park, campground">Lodging</input>
                   <br>
-                  <input type="checkbox" value="gym">Gyms</input>
+                  <input type="checkbox" name= "types" value="beauty_salon, hair_care, spa">Beauty & Spa</input>
                   <br>
-                  <input type="checkbox" value="museum">Museums</input>
+                  <input type="checkbox" name= "types" value="dentist, doctor, health, hospital, pharmacy">Health & Medical</input>
                   <br>
-                  <input type="checkbox" value="night_club">Night Clubs</input>
+                  <input type="checkbox" name= "types" value="car_rental, car_repair, car_dealer, car_wash, gas_station">Automotive</input>
                   <br>
-                  <input type="checkbox" value="shopping_mall">Shopping Malls</input>
-                  <br>
-                  <input type="checkbox" value="stadium">Stadiums</input>
-                  <br>
-                  <input type="checkbox" value="travel_agency">Travel Agencies</input>
-                  <br>
-                  <input type="checkbox" value="zoo">Zoos</input>
+                  <input type="checkbox" name= "types" value="bar, night_club">Night Life</input>
                </div>
             </div>
          </form>
@@ -123,10 +117,10 @@
                <div>There are quite a few meat options, which is nice! The meat is very flavorful and tender. At first I really didn't like the idea of trying Langua (beef tongue), but two of my friends highly recommended it. I would say if I close my eyes and don't actually think about what it actually is, it's as good as any piece of tender meat. I personally like the spicy pork the most. The beef is not as tender, but still good. The other ingredients (lettuce and onions) are also pretty fresh. </div>
             </div>
          </div>
-      </div>  
+      </div>
       <!--For displaying Google Maps-->
       <div id="map-canvas"></div>
-       
+
       <!--For collecting user's initial start and end destinations-->
       <div id="container">
       <button id="next-box-results">Next box Results</button>
@@ -145,6 +139,6 @@
                </span>
             </form>
          </div>
-      </div> 
+      </div>
    </body>
 </html>
