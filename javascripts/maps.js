@@ -26,9 +26,11 @@ function calcRoute(newStart, newEnd) {
 
   var start = newStart;
   var end = newEnd;
+  var waypts = [{location: '855 N 80th Street, seattle, wa'}, {location: 'university of washington, seattle, wa'}];
   var request = {
     origin: start,
     destination: end,
+    waypoints: waypts,
     travelMode: google.maps.TravelMode.DRIVING
   };
 
@@ -75,6 +77,7 @@ function placesCallback(results, status){
     for (var i = 0; i < results.length; i++) {
       var place = results[i];
       createMarker(results[i]);
+      console.log("json " + results[i]);
     }
     console.log(results);
   }
@@ -108,7 +111,7 @@ function searchTenBoxes(boxes) {
     searchTenBoxes(boxes);
     //use this to have user click after delay for next 10 boxes
     //$("#next-box-results").prop("disabled", false);
-  },2000);
+  },6000);
 };
 
 function searchTenCircles(centers) {
