@@ -32,6 +32,11 @@ input {
 	color: #000000;
 }
 
+/* Just a helper to get if out of my face! */
+#container {
+	display: none;
+}
+
 /*
 	THE MAP
 	----------------------------------------
@@ -197,9 +202,11 @@ input {
 */
 #results-window {
 	height: 100%;
+	max-height: 100%;
 	width: 55px;
 	background-color: #FF9900;
 	float: right;
+	overflow: auto;
 }
 
 #results-window.expandResults {
