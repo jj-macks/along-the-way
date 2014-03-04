@@ -21,11 +21,15 @@ function initialize() {
   directionsDisplay.setMap(map);
 }
 
-function calcRoute(newStart, newEnd) {
+function calcRoute(cities) {
   placesService = new google.maps.places.PlacesService(map);
 
-  var start = newStart;
-  var end = newEnd;
+  var start = cities[0];
+  var end = cities[1];
+  // var waypts = [];
+  //for (var i = 2; i < cities.length; i++) {
+    //waypts.push(cities[i]);
+  //}
   var waypts = [{location: '855 N 80th Street, seattle, wa'}, {location: 'university of washington, seattle, wa'}];
   var request = {
     origin: start,

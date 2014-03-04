@@ -2,7 +2,7 @@ $( document ).ready(function() {
     // An array that contains the list of cities entered by the user
     // cities[0] contains the start destination
     // cities[1] contains the end destination
-    var cities = [];    
+    var cities = [];
 
     // Stores start and end destinations entered by user
     // Then removes the overlay containing the form
@@ -16,14 +16,14 @@ $( document ).ready(function() {
             cities[1] = $("#end-destination").val();
 
             console.log(cities);    // debugger [Can remove from final version]
-            
+
             $("#initial-destinations-overlay").remove();    // removes the overlay containing the form
-            calcRoute(cities[0], cities[1]);  
+            calcRoute(cities);
             //locationMarker.setMap(null);                    // removes the giant pin marker
-            //draw_initialRoute(cities[0], cities[1]);        // draws the initial route between the start and end destinations 
-            
+            //draw_initialRoute(cities[0], cities[1]);        // draws the initial route between the start and end destinations
+
             console.log(cities);    // debugger [Can remove from final version]
-            
+
             e.preventDefault();
 
         // if either or both the start and end destinations are not populated,
@@ -48,7 +48,7 @@ $( document ).ready(function() {
       searchTenCircles(centers);
     });
 
-    // Add click listener to the left side arrow to open and close 
+    // Add click listener to the left side arrow to open and close
     // the advanced search panel
     $('#pull').click( function(e) {
        e.preventDefault();
