@@ -24,9 +24,9 @@
 	padding: 0;
 	border: 0;
 	outline: 0;
-	line-height: 1.3;
+	line-height: 1;
 	text-decoration: none;
-	font-size: 100%;
+	font-size: 75%;
 	list-style: none;
 }
 .ui-helper-clearfix:before,
@@ -91,7 +91,7 @@
 	cursor: pointer;
 	position: relative;
 	margin-top: 2px;
-	padding: .5em .5em .5em .7em;
+	padding: .2em .2em .2em .4em;
 	min-height: 0; /* support: IE7 */
 }
 .ui-accordion .ui-accordion-icons {
