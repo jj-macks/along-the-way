@@ -74,7 +74,10 @@ function clearBoxes() {
 function placesCallback(results, status){
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     console.log("placesCallback");
-    for (var i = 0; i < results.length; i++) {
+
+    //for (var i = 0; i < results.length; i++) {
+    //now only returns the first five places for each box
+    for (var i = 0; i < 5; i++) {
       var place = results[i];
       createMarker(results[i]);
       //now logs the name of each place in the console
