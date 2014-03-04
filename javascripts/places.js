@@ -4,7 +4,7 @@ var tripResults = [],
 
 function placesCallback(results, status){
   if (isFirst) {
-    console.log(results.length);
+    //console.log(results.length);
     for (var i = 0; i < results.length; i++) {
       tripResults.push([]);
     }
@@ -20,7 +20,7 @@ function placesCallback(results, status){
       //now logs the name of each place in the console
       console.log("json " + results[i].name);
       createMarker(place);
-      tripResults[i].push(place);
+      //tripResults[i].push(place);
     }
   }
 }
