@@ -24,6 +24,7 @@ function calcRoute(places) {
       centers = path;
       boxes = rboxer.box(path, distance);     // Creates all the route boxes with the given radius (distance)
       drawBoxes(boxes);
+      searchTenBoxes(boxes);
     }
   });
 }

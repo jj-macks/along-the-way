@@ -34,10 +34,6 @@ function searchTenBoxes(boxes) {
     var request = {bounds: bounds,
       keyword: 'starbucks',
       rankby: distance};
-    //placesService.nearbySearch(request, placesCallback);
-    placesService.radarSearch(request, placesCallback);
-    var bounds = boxes[i]; //boxes around route that boxer returned
-    var request = {bounds: bounds, keyword: ['store']};
     $("#next-box-results").prop("disabled", true);
     console.log(startAtBox);
     placesService.nearbySearch(request, placesCallback);
