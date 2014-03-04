@@ -4,7 +4,6 @@ var directionsDisplay, map,
     tripResults = [],
     placesService, // have to wait for map to be defined to define
     isFirst = true;
-var directionsDisplay;          //global to be defined later
 var map,
     boxes, centers,
     startAtBox = 0,
