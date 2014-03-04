@@ -5,16 +5,16 @@
 
       <!--Stylesheets-->
       <!-- http://zurb.com/playground/foundation-icons -->
-      <link rel="stylesheet" type="text/css" 
-      href="fonts/foundation_icons_general/stylesheets/general_foundicons.css">
-      <link rel="stylesheet" href="css/jquery_accordion/jquery-ui-1.10.4.custom.css" >
+      <link rel="stylesheet" type="text/css" href="fonts/foundation_icons_general/stylesheets/general_foundicons.css">
+      <link href="css/jquery_accordion/jquery-ui-1.10.4.custom.css" rel="stylesheet">
       <link rel="stylesheet" type="text/css" href="css/index.css">
 
       <!--APIs-->
 
       <!--Libraries-->
       <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-      <script type="text/javascript" src="javascripts/lib/jquery-ui-1.10.4.custom.js"></script>
+      <script src="javascripts/lib/jquery-ui-1.10.4.custom.js"></script>
+      <script src="javascripts/lib/handlebars-v1.3.0.js"></script>
 
       <!--Google Maps/Places Libraries-->
       <script type="text/javascript"
@@ -27,7 +27,6 @@
       <!-- Map Scripts -->
       <script type="text/javascript" src="javascripts/index.js"></script>
       <script type="text/javascript" src="javascripts/maps.js"></script>
-      
    </head>
 
    <body>
@@ -114,17 +113,22 @@
          <div id="results-view">
             <h2>Search Results</h2>
             <div id="accordion">
-               <h4>Bob’s Quality Meats</h4>
-               <div>For generations, Bob’s Quality Meats has upheld a tradition of providing only the freshest meats from sustainable grassy pastures. No hormones. No antibiotics. Only the good stuff!</div>
-               <h4>The Museum of Flight</h4>
-               <div>The Museum will host a two-day symposium bringing together an international team of experts on aircraft recovery from forests, frozen lakes, and beneath the sea.</div>
-               <h4>MacPherson’s Fruit and Produce</h4>
-               <div>What a gem in Seattle. Another tribute to yelp and I would never have picked it unless I had seen the reviews. The produce is fresh and the quality is excellent. And the prices are reasonable. </div>
-               <h4>Tacos El Asadero</h4>
-               <div>There are quite a few meat options, which is nice! The meat is very flavorful and tender. At first I really didn't like the idea of trying Langua (beef tongue), but two of my friends highly recommended it. I would say if I close my eyes and don't actually think about what it actually is, it's as good as any piece of tender meat. I personally like the spicy pork the most. The beef is not as tender, but still good. The other ingredients (lettuce and onions) are also pretty fresh. </div>
             </div>
          </div>
       </div>  
+
+      <script id="accordion-template" type="text/x-handlebars-template">
+         {{#places}}
+            <h4>{{ name }}</h4>
+            <div>
+               <ul>
+                  {{#each types}}
+                     <li>{{this}}</li>
+                  {{/each}}
+               </ul>
+            </div>
+         {{/places}}
+      </script>
       <!--For displaying Google Maps-->
       <div id="map-canvas"></div>
        
@@ -147,5 +151,7 @@
             </form>
          </div>
       </div> 
+
+      <script type="text/javascript" src="javascripts/results.js"></script>
    </body>
 </html>

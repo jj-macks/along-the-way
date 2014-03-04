@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 var directionsDisplay, map, 
     boxes, centers, 
     startAtBox = startAtCenter = 0,
