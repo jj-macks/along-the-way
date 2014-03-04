@@ -77,7 +77,8 @@ function placesCallback(results, status){
     for (var i = 0; i < results.length; i++) {
       var place = results[i];
       createMarker(results[i]);
-      console.log("json " + results[i]);
+      //now logs the name of each place in the console
+      console.log("json " + results[i].name);
     }
     console.log(results);
   }
