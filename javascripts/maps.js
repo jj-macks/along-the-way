@@ -1,14 +1,12 @@
-var directionsDisplay, map,
-    boxes, centers,
-    startAtBox = startAtCenter = 0,
+var directionsDisplay, 
+    map,
+    boxes, 
+    centers,
+    startAtBox = 0,
+    startAtCenter = 0,
     tripResults = [],
     placesService, // have to wait for map to be defined to define
     isFirst = true;
-var directionsDisplay;          //global to be defined later
-var map,
-    boxes, centers,
-    startAtBox = 0,
-    startAtCenter = 0;
 var placesService;              // have to wait for map to be defined to define
 var directionsService = new google.maps.DirectionsService();
 var rboxer = new RouteBoxer();  // draws boxes around the route

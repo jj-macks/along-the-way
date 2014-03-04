@@ -13,6 +13,7 @@
 
       <!--Libraries-->
       <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
       <script src="javascripts/lib/jquery-ui-1.10.4.custom.js"></script>
       <script src="javascripts/lib/handlebars-v1.3.0.js"></script>
 
@@ -42,7 +43,13 @@
          </a>
          <form id="adv_search">
             <div>
-               <h3>Advanced Search</h3>
+               <h2>Search</h2>
+            </div>
+            <div class="search-input horizontal-borders" id='destinations'>
+               <label>Destinations</label>
+               <input id="start-destination" type="text" placeholder="Party starts here"></input>
+               <input id="end-destination" type="text" placeholder="And ends here"></input>
+               <input id="go" type="button" value="Go!"/>
             </div>
             <div class="search-input horizontal-borders">
                <label>Keywords</label>
@@ -52,6 +59,7 @@
                <label>Route Radius (miles)</label>
                <input type="text" id="radius" placeholder="Distance from route"></input>
             </div>
+            <!--
             <div class="search-input horizontal-borders">
                <label>Max price</label>
                <select id="max-price" class="price">
@@ -73,8 +81,10 @@
                   <option value="4">$$$$</option>
                </select>
             </div>
-            <div class="search-input horizontal-borders" id="filters">
-               <label>Filtering</label>
+            -->
+            <div id="filter-accordion">
+            <!--<div class="search-input horizontal-borders" id="filters">-->
+               <label id="filter-label">Filtering &#8595;</label>
                <div>
                   <hr>
                   <input type="checkbox" value="art_gallery">Art Galleries</input>
@@ -101,6 +111,7 @@
                   <br>
                   <input type="checkbox" value="zoo">Zoos</input>
                </div>
+            </div>
             </div>
          </form>
       </div>
@@ -131,26 +142,6 @@
       </script>
       <!--For displaying Google Maps-->
       <div id="map-canvas"></div>
-       
-      <!--For collecting user's initial start and end destinations-->
-      <div id="container">
-      <button id="next-box-results">Next box Results</button>
-      <button id="next-circle-results">Next circle Results</button>
-
-         <div id="initial-destinations-overlay">
-            <form id="destinations-form">
-               <span class="destination">
-                  <label>Party starts here</label>
-                  <input id="start-destination" type="text"/>
-               </span>
-               <span class="destination">
-                  <label>And ends here:</label>
-                  <input id="end-destination" type="text"/>
-                  <input id="go" type="button" value="Go!"/>
-               </span>
-            </form>
-         </div>
-      </div> 
 
       <script type="text/javascript" src="javascripts/results.js"></script>
    </body>

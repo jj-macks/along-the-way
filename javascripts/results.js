@@ -7,16 +7,6 @@ $(document).ready( function() {
 
   $('#accordion').html( template( data ) );
 
-  // Add click listener to the left side arrow to open and close 
-  // the advanced search panel
-  $('#pull').click( function(e) {
-     e.preventDefault();
-     // Toggle the advanced search form
-     $('#adv_search').fadeToggle();
-     // Toggle the opening and closing of the search panel
-     $('#search-panel').toggleClass('expandSearch');
-  });
-
   // Add click listener to the right side arrow to open and close
   // the advanced search panel
   $('#push').click( function(e) {
