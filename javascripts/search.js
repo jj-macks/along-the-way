@@ -17,7 +17,8 @@ $("#go").click(function(e) {
 
         console.log(places);    // debugger [Can remove from final version]
 
-        $("#destinations").html("<label>Destinations</label><input id='add-destination' type='text' placeholder='Add more here'></input><input id='go2' type='button' value='Go!'/><label id='party-list'>Party list:</label><ul></ul>");
+        $("#destinations").html(
+"<label>Destinations</label><input id='add-destination' type='text'           placeholder='Add more here'></input><input id='go2' type='button' value='Go!'/><label id='party-list'>Party list:</label><ul></ul>");
         $("ul").append("<li>" + places[0] + "</li>");
         $("ul").append("<li>" + places[1] + "</li>");
 
