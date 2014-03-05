@@ -1,7 +1,9 @@
 function calcRoute(places) {
+
   placesService = new google.maps.places.PlacesService(map);
+
   var start = places[0];
-  var end = places[1];
+  var end = places[ places.length - 1 ];
   var waypts = [];
   for (var i = 2; i < places.length; i++) {
     var point = {};
