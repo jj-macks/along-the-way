@@ -20,7 +20,7 @@ function drawBoxes(boxes) {
 
 // Clear boxes currently on the map
 function clearBoxes() {
-  if (boxpolys != null) {
+  if (boxpolys !== null) {
     for (var i = 0; i < boxpolys.length; i++) {
       boxpolys[i].setMap(null);
     }
@@ -32,7 +32,10 @@ function searchTenBoxes(boxes) {
   for (var i = startAtBox; i < startAtBox + 10; i++) {
     var bounds = boxes[i];
     var request = {bounds: bounds,
-      keyword: 'starbucks',
+      keyword: $("input[id=keywords]").val(),
+      minprice: $("#min-price option:selected").val(),
+      maxprice: $("#max-price option:selected").val(),
+      types: getTypes(),
       rankby: distance};
     $("#next-box-results").prop("disabled", true);
     console.log(startAtBox);
@@ -45,5 +48,5 @@ function searchTenBoxes(boxes) {
     //use this to have user click after delay for next 10 boxes
     //$("#next-box-results").prop("disabled", false);
   },6000);
-};
+}
 

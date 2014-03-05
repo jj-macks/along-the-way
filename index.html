@@ -55,12 +55,10 @@
                <label>Route Radius (miles)</label>
                <input type="text" id="radius" placeholder="Distance from route"></input>
             </div>
-            <!--
             <div class="search-input horizontal-borders">
                <label>Min price</label>
                <select id="min-price" class="price">
                   <option value="" selected></option>
-                  <option value="0">-</option>
                   <option value="1">$</option>
                   <option value="2">$$</option>
                   <option value="3">$$$</option>
@@ -70,36 +68,34 @@
                <label>Max price</label>
                <select id="max-price" class="price">
                   <option value="" selected></option>
-                  <option value="0">-</option>
                   <option value="1">$</option>
                   <option value="2">$$</option>
                   <option value="3">$$$</option>
                   <option value="4">$$$$</option>
                </select>
             </div>
-            -->
             <div id="filter-accordion">
             <!--<div class="search-input horizontal-borders" id="filters">-->
                <label id="filter-label">Filtering &#8595;</label>
                <div>
                   <hr>
-                  <input type="checkbox" name= "types" value="food, grocery_or_supermarket, liquor_store, meal_delivery, meal_takeaway, restaurant">Food</input>
+                  <input type="checkbox" name= "types" value="food,grocery_or_supermarket,liquor_store,meal_delivery,meal_takeaway,restaurant">Food</input>
                   <br>
-                  <input type="checkbox" name= "types" value="bakery, cafe">Cafe & Bakery</input>
+                  <input type="checkbox" name= "types" value="bakery,cafe">Cafe & Bakery</input>
                   <br>
-                  <input type="checkbox" name= "types" value="book_store, clothing_store, department_store, electronics_store, furniture_store, hardware_store, jewelry_store, shopping_mall, shoe_store">Shopping</input>
+                  <input type="checkbox" name= "types" value="book_store,clothing_store,department_store,electronics_store,furniture_store,hardware_store,jewelry_store,shopping_mall,shoe_store">Shopping</input>
                   <br>
-                  <input type="checkbox" name= "types" value="amusement_park, aquarium, art_gallery, bowling_alley, casino, movie_theater, museum, park, zoo">Attractions</input>
+                  <input type="checkbox" name= "types" value="amusement_park,aquarium,art_gallery,bowling_alley,casino,movie_theater,museum,park,zoo">Attractions</input>
                   <br>
-                  <input type="checkbox" name= "types" value="lodging, rv_park, campground">Lodging</input>
+                  <input type="checkbox" name= "types" value="lodging,rv_park,campground">Lodging</input>
                   <br>
-                  <input type="checkbox" name= "types" value="beauty_salon, hair_care, spa">Beauty & Spa</input>
+                  <input type="checkbox" name= "types" value="beauty_salon,hair_care,spa">Beauty & Spa</input>
                   <br>
-                  <input type="checkbox" name= "types" value="dentist, doctor, health, hospital, pharmacy">Health & Medical</input>
+                  <input type="checkbox" name= "types" value="dentist,doctor,health,hospital,pharmacy">Health & Medical</input>
                   <br>
-                  <input type="checkbox" name= "types" value="car_rental, car_repair, car_dealer, car_wash, gas_station">Automotive</input>
+                  <input type="checkbox" name= "types" value="car_rental,car_repair,car_dealer,car_wash,gas_station">Automotive</input>
                   <br>
-                  <input type="checkbox" name= "types" value="bar, night_club">Night Life</input>
+                  <input type="checkbox" name= "types" value="bar,night_club">Night Life</input>
                </div>
             </div>
             </div>
@@ -137,9 +133,10 @@
       <script type="text/javascript" src="javascripts/index.js"></script>
       <script src="javascripts/boxes.js"></script>
       <script src="javascripts/directions.js"></script>
-      
+
       <script src="javascripts/search.js"></script>
       <script src="javascripts/places.js"></script>
+      <script src="javascripts/filter.js"></script>
 
       <script type="text/javascript" src="javascripts/results.js"></script>
    </body>

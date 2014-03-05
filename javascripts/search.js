@@ -107,7 +107,3 @@ $('#filter-accordion label').click(function(e) {
 
 // Displays on inital expansion a collapsed filter accordian
 $('#filter-accordion label').next('div').slideUp();
-
-
-
-
