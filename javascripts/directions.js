@@ -23,7 +23,6 @@ function calcRoute(places) {
       directionsDisplay.setDirections(result); //puts the line on the map
       // Box the overview path of the first route
       var path = result.routes[0].overview_path;  // Contains all the GPS coordinates
-      centers = path;
       boxes = rboxer.box(path, distance);     // Creates all the route boxes with the given radius (distance)
       drawBoxes(boxes);
       searchTenBoxes(boxes);

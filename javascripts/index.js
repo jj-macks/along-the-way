@@ -14,5 +14,8 @@ function initialize() {
   directionsDisplay.setMap(map);
 }
 
+$body = $('body');
+
+
 google.maps.event.addDomListener(window, 'load', initialize);
 
