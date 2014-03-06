@@ -44,6 +44,10 @@ app.appController = {
         self.appendDestinations( app.destinations[0] );
         self.appendDestinations( app.destinations[1] );
 
+        app.route = app.Route( app.map );
+
+        app.route.createRoute();
+
         /*********************************
         Start the process of creating the route object
         and everything that goes with it.

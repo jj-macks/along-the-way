@@ -6,6 +6,8 @@
   // Initialize the objects to handle directions
   app.directions.init();
 
+  app.distance = 10;
+
   // An array that contains the list of places entered by the user.
   // The places should be in the order the user entered them.
   app.destinations = [];
