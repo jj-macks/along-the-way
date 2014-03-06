@@ -14,5 +14,10 @@
 
   // Initialize the controller, which add listeners to run app
   app.appController.init();
+
+  /*****************************
+  Temporarily create the template
+  ******************************/
+  makeTemplate();
 })();
 
