@@ -51,58 +51,9 @@ input {
 	SEARCH BAR
 	----------------------------------------
 */
-#container {
-	position: absolute;
-	top: 5%;
-	left: calc(50% - 20em);
-}
 
-#initial-destinations-overlay {
-	height: auto;
-	margin: 0 auto;
-
-	background-color: #424242;
-
-	border-radius: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-style: solid;
-	border-width: 1px;
-
-	font-family: 'GeosansLight';
-	font-size: 125%;
-	color: #FF9900;
-	z-index: 100;
-}
-
-#destinations-form {
-	padding: .5em;
-}
-
-/* Respond to medium sized devices */
-@media screen and (max-width: 900px) {
-	.destination {
-		display: block;
-	}
-
-	#initial-destinations-overlay {
-		width: 450px;
-	}
-
-	#container {
-		position: absolute;
-		left: 20%;
-	}
-}
-
-/* Respond to small device */
-@media screen and (max-width: 550px) {
-	#initial-destinations-overlay {
-		width: 300px;
-	}
-	input {
-		font-size: 50%
-	}
+#add-destinations {
+	display: none;
 }
 
 /*
@@ -281,6 +232,10 @@ black: #333333; -> replaced with #424242
   	-webkit-box-shadow:inset 0px 0px 10px #424242;
   	box-shadow:inset 0px 0px 10px #424242;
   	*/
+}
+
+.block {
+	display: block;
 }
 
 

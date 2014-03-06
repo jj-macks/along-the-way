@@ -43,8 +43,17 @@
             </div>
             <div class="search-input horizontal-borders" id='destinations'>
                <label>Destinations</label>
-               <input id="start-destination" type="text" placeholder="Party starts here"></input>
-               <input id="end-destination" type="text" placeholder="And ends here"></input>
+               <div id="initial-destinations">
+                  <input id="start-destination" type="text" placeholder="Party starts here"></input>
+                  <input id="end-destination" type="text" placeholder="And ends here"></input>
+               </div>
+               <div id="add-destinations">
+                  <input id='add-destination' type='text' placeholder='Add more here'></input>
+                  <div class="block">
+                     <label>Party list:</label>
+                     <ul id='party-list'></ul>
+                  </div>
+               </div>
                <input id="go" type="button" value="Go!"/>
             </div>
             <div class="search-input horizontal-borders">
@@ -130,14 +139,9 @@
       <div id="map-canvas"></div>
 
       <!-- Map Scripts -->
-      <script type="text/javascript" src="javascripts/index.js"></script>
-      <script src="javascripts/boxes.js"></script>
-      <script src="javascripts/directions.js"></script>
-
-      <script src="javascripts/search.js"></script>
-      <script src="javascripts/places.js"></script>
-      <script src="javascripts/filter.js"></script>
-
-      <script type="text/javascript" src="javascripts/results.js"></script>
+      <script src="javascripts/models/mapModel.js"></script>
+      <script src="javascripts/models/directionsModel.js"></script>
+      <script src="javascripts/controllers/appController.js"></script>
+      <script src="javascripts/views/searchView.js"></script>
    </body>
 </html>
