@@ -22,3 +22,7 @@ $('#pull').click( function(e) {
    // Toggle the opening and closing of the search panel
    $('#search-panel').toggleClass('expandSearch');
 });
+
+autoCompletion('add-destination');
+autoCompletion('end-destination');
+autoCompletion('start-destination');

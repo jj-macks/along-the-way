@@ -1,7 +1,9 @@
 var input3;
 
 function validateInput (input) {
-  return (/^[a-zA-Z\d(,. )]+$/.test(input));
+  if (input !== "" && (/^[a-zA-Z\d(,. )]+$/.test(input)) === true) {
+    return true;
+  }
 }
 
 function autoCompletion (id) {

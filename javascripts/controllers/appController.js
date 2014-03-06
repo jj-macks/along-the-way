@@ -11,7 +11,7 @@ app.appController = {
     this.removeDestinationListener();
   },
 
-  listenForGo: function() { 
+  listenForGo: function() {
     var self = this;
     // Listen for the user hitting the go button. If there is a start and end
     // destination, save and draw the route. If there is a new destination,
@@ -24,7 +24,8 @@ app.appController = {
 
       // If the form is populated with both start and end destinations,
       // store the values in the places array
-      if ( start.val() !== '' && end.val() !== '') {
+      if ( validateInput(start.val()) && validateInput(end.val())) {
+      //if ( start.val() !== '' && end.val() !== '') {
 
         // the starting point
         app.destinations[0] = start.val();
@@ -39,7 +40,7 @@ app.appController = {
         $('#initial-destinations').hide();
         // Show the add destinations inputs and ul
         $('#add-destinations').show();
-        
+
         // Add the destinations to the ul element holding the destinations
         self.appendDestinations( app.destinations[0] );
         self.appendDestinations( app.destinations[1] );
@@ -54,11 +55,12 @@ app.appController = {
         **********************************/
         //calcRoute(places);     // draws the initial route between the start and end destinations
 
-      
-      } 
+
+      }
       // If either or both the start and end destinations are not populated,
       // check if a destination was added.
-      else if ($("#add-destination").val() !== '') {
+      else if (validateInput($("#add-destination").val())) {
+      //else if ($("#add-destination").val() !== '') {
         // Get the value for the new destination to be added
         var newDestination = addDest.val();
 
