@@ -66,6 +66,9 @@ input {
 	input {
 		font-size: 70%;
 	}
+	#filter-accordion {
+		font-size: 70%;
+	}
 	label {
 		font-size: 70%;
 	}
@@ -74,29 +77,57 @@ input {
 		font-size: 5%;
 	}
 	#search-panel {
-		width: 134px;
+		width: 134px !important;
 	}
 	#party-list li {
 		font-size: 70%;
 	}
 	#results-window.expandResults {
-		width: 40%;
+		width: 40% !important;
 	}
-	#search-panel {
-		height: 20%;
-		width: 100%;
-	}
-
 }
-
-
+/*
+@media screen and (max-width: 450px) {
+	#search-panel {
+		height: 20% !important;
+		width: 100% !important;
+		display: block;
+		z-index: 2;
+	}
+	#adv_search {
+		height: 20% !important;
+		width: 100% !important;
+		z-index: 2;
+	}
+	#map-canvas {
+		height: 80%;
+  	padding: 0px;
+  	display: block;
+  	z-index: 1;
+	}
+	#results-window {
+		height: 20% !important;
+		display: block;
+		width: 100% !important;
+	}
+	#push .navicon {
+		display: none;
+	}
+	#pull .navicon {
+		display: none;
+	}
+	h2 {
+		display:none;
+	}
+}
+*/
 /*
 	ADVANCED SEARCH PANEL
 	----------------------------------
 */
 
 #search-panel {
-	max-width:162px;
+	width:162px;
 	height: 100%;
 	float: left;
 	background-color: #3299BB;
@@ -110,7 +141,7 @@ input {
 	height: 90%;
 }
 
-#adv_search h1 {
+#adv_search h2 {
 	text-shadow: 1px 1px 1px #424242;
 	margin-left: 8%;
 	margin-top: 50px;
@@ -137,6 +168,12 @@ input {
 
 #party-list {
 	margin-top: 2.5%;
+}
+
+#reset {
+	font-weight: normal;
+	font-size: 75%;
+	text-decoration: underline;
 }
 
 /* Search panel CSS helper class */

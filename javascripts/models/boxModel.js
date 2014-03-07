@@ -10,20 +10,34 @@ app.Box = function Box(rbox) {
   constructor.prototype.getPlaces = function() {
     var request = {
       bounds: rbox,
-      keyword: $("input[id=keywords]").val(),
-      minprice: $("#min-price option:selected").val(),
-      maxprice: $("#max-price option:selected").val(),
-      types: getTypes(),
-      rankby: distance
-    };
+      keyword: app.keywords,
+      minprice: app.minPrice,
+      maxprice: app.maxPrice,
+      types: app.filters,
+      rankby: app.distance
+    }
     app.places.placesService.nearbySearch(request, self.buildPlaces);
   };
 
   constructor.prototype.buildPlaces = function(results, status) {
     for (var i = 0; i < results.length; i++) {
-      var place = new Place(results[i]);
-      self.places.push(place); 
+      var place = new app.Place(results[i]);
+      place.createMarker();
+      place.addMarkerListener();
+      places.push(place); 
     }
   };
+
+  constructor.prototype.getBox = function() {
+    return rbox;
+  };
+  
+  constructor.prototype.clearPlaces = function() {
+    for (var i = 0; i < places.length; i++) {
+      places[i].getMarker().setMap(null);
+      places[i] = null;
+    }
+  };
+
   return new constructor();
-}
+};

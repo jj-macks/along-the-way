@@ -6,6 +6,7 @@ app.appController = {
   init: function() {
     // Listener for click initiating search
     this.listenForGo();
+    this.listenForReset();
 
     // Listener for client removing destination
     this.removeDestinationListener();
@@ -18,9 +19,15 @@ app.appController = {
     // add that destination to the route. Otherwise, alert the user that
     // their input was invalid.
     $("#go").click( function(e) {
+      app.distance = self.getRadius();
+
       var start = $("#start-destination"),
           end = $("#end-destination"),
-          addDest = $('#add-destination');
+          addDest = $('#add-destination'),
+          keywords = $('#keywords'),
+          minPrice = $('#min-price'),
+          maxPrice = $('#max-price'),
+          filters = self.getTypes();
 
       // If the form is populated with both start and end destinations,
       // store the values in the places array
@@ -45,8 +52,18 @@ app.appController = {
         self.appendDestinations( app.destinations[0] );
         self.appendDestinations( app.destinations[1] );
 
-        app.route = app.Route( app.map );
+        // keywords to narrow search 
+        app.keywords = keywords.val();
 
+        // minPrice and maxPrice to narrow search
+        app.minPrice = minPrice.val();
+        app.maxPrice = maxPrice.val();
+
+        // additional filters to narrow search
+        app.filters = filters;
+
+        // Creates route
+        app.route = app.Route( app.map );
         app.route.createRoute();
 
         /*********************************
@@ -54,8 +71,6 @@ app.appController = {
         and everything that goes with it.
         **********************************/
         //calcRoute(places);     // draws the initial route between the start and end destinations
-
-
       }
       // If either or both the start and end destinations are not populated,
       // check if a destination was added.
@@ -87,6 +102,27 @@ app.appController = {
     });
   },
 
+  listenForReset: function() {
+    $("#reset").click( function(e) {
+      app.route.clearRoute();
+    
+      // Reset the values in the form
+      $('#party-list').text('');
+
+      // Hide the initial destination inputs
+      $('#initial-destinations').show();
+
+      // Show the add destinations inputs and ul
+      $('#add-destinations').hide();
+
+      // Reset click listeners
+      $('#go').unbind('click');
+      $('#reset').unbind('click');
+
+      initializeApp();
+    })
+  },
+
   // Appends the list of destinations with the new destination
   appendDestinations: function ( destination ) {
     $("#party-list").append("<li>" + destination + "</li>");
@@ -101,13 +137,28 @@ app.appController = {
       console.log('Clicked ' + app.destinations );
       $(this).remove();
     });
+  },
+
+ /******************************
+  Helper Functions for Filtering
+  ******************************/
+
+  //turns search radius miles into kilometers and returns value
+  getRadius: function() {
+    var kilometers = $("#radius option:selected").val() * 1.60934;
+    return kilometers;
+  },
+
+  //compiles checkbox values into one string
+  getTypes: function() {
+    var typesParameters = [];
+    var types = $("input[name=types]");
+    for (var i = 0; i < types.length; i++) {
+      if (types[i].checked) {
+        var array = (types[i].value).split(",")
+        typesParameters = typesParameters.concat(array);
+      }
+    }
+    return typesParameters;
   }
 };
-
-
-
-
-
-
-
-
