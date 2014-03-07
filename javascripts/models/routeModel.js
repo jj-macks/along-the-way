@@ -4,6 +4,7 @@ app.Route = function Route(map) {
   var path;
   var boxes = [];
   var boxpolys;
+  var startAtBox = 0;
   var self = constructor.prototype;
 
   function constructor() { };
@@ -71,6 +72,7 @@ app.Route = function Route(map) {
       var box = new app.Box(newBoxes[i]);
       boxes.push(box);
     }
+    self.searchTenBoxes(boxes);
     cb();
   };
 
@@ -86,7 +88,6 @@ app.Route = function Route(map) {
         map: app.map.map
       });
     };
-    boxes[0].getPlaces();
   };
 
   constructor.prototype.clearBoxes = function() {
@@ -98,21 +99,45 @@ app.Route = function Route(map) {
     boxpolys = null;
   };
 
+  constructor.prototype.clearPlaces = function() {
+    for (var i = 0; i < boxes.length; i++) {
+      boxes[i].clearPlaces();
+    }
+  };
+
   constructor.prototype.getPath = function() {
     return path;
-  }
+  };
 
   constructor.prototype.setPath = function(newPath) {
     path = newPath;
-  }
+  };
 
   constructor.prototype.getBoxes = function() {
     return boxes;
-  }
+  };
 
   constructor.prototype.setBoxes = function(newBoxes) {
     boxes = newBoxes;
-  }
+  };
+
+  constructor.prototype.searchTenBoxes = function(boxes) {
+    for (var i = startAtBox; i < startAtBox + 10; i++) {
+      boxes[i].getPlaces();
+    }
+    startAtBox += 10;
+    setTimeout(function(){
+      self.searchTenBoxes(boxes);
+
+    }, 6000);
+  };
+
+  constructor.prototype.clearRoute = function() {
+    self.clearPlaces();
+    self.clearBoxes();
+    self.setBoxes(null);  
+    app.directions.directionsRenderer.setMap(null);
+  };
 
   return new constructor();
 };
