@@ -21,17 +21,34 @@ app.Box = function Box(rbox) {
 
   constructor.prototype.buildPlaces = function(results, status) {
     for (var i = 0; i < results.length; i++) {
-      var place = new app.Place(results[i]);
+      var place = new app.Place(results[i], self);
       place.createMarker();
       place.addMarkerListener();
-      places.push(place); 
+      places.push(place);
     }
   };
+
+  constructor.prototype.logBox = function ( data ) {
+    for (key in data) {
+      console.log(key + " : " + data[key] + " something");
+    }
+  };
+
+  constructor.prototype.populateAccordion = function () {
+    var boxResults = [];
+    for (var i = 0; i < places.length; i++) {
+      if (places[i]) {
+        boxResults.push(places[i].getData());
+      }
+    }
+    console.log(boxResults);
+    makeTemplate(boxResults);
+  }
 
   constructor.prototype.getBox = function() {
     return rbox;
   };
-  
+
   constructor.prototype.clearPlaces = function() {
     for (var i = 0; i < places.length; i++) {
       places[i].getMarker().setMap(null);
