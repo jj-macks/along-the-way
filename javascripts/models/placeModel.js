@@ -45,8 +45,10 @@ app.Place = function Place(placeData, box) {
         //also make the accordion closed at init and only open when one is clicked so we have details
         var divIndexID = $('#accordion').find('#' + IDreference).prev('h4').attr('id');
         //console.log(divIndexID);
-        var divIndex = parseInt(divIndexID[divIndexID.length - 1]);
-        //console.log(divIndex);
+        var numberRegex = /\d+/g;
+        var divIndex = parseInt(divIndexID.match(numberRegex));
+        //var divIndex = parseInt(divIndexID[divIndexID.length - 1]);
+        console.log(divIndex);
         console.log(place);
         $('#accordion').accordion('option', 'active', divIndex); //this works!
         $('#accordion').find('#' + IDreference + ' ul').html('');
