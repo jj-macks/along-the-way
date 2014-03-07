@@ -30,17 +30,22 @@ app.Place = function Place(placeData) {
 
     function getDetailsCallback (place, status) {
       if (status == google.maps.places.PlacesServiceStatus.OK) {
-        console.log(place.name + " : " + place.reference);
-        //$('#accordion').html('');
+        console.log(place.name + " : " + place.id);
         var accordion_details_template = $('#accordion-details-template').html();
         var template = Handlebars.compile( accordion_details_template );
         var data = {
           place: place
         };
-        //data.places = place;
-        IDreference = place.reference;
+        IDreference = place.id;
+        var active = $('#accordion').accordion('option', 'active');
+        //h4 last chars in the id after the dash (from the end, go to the dash, and find following digits)
+        //also make the accordion closed at init and only open when one is clicked so we have details
+        var divIndexID = $('#accordion').find('#' + IDreference).prev('h4').attr('id');
+        console.log(divIndexID);
+        var divIndex = parseInt(divIndexID[divIndexID.length - 1]);
+        console.log(divIndex);
+        $('#accordion').accordion('option', 'active', 0);
         $('#accordion').find('#' + IDreference + ' ul').html('');
-        //$('#accordion').children('div').removeClass('ui-accordion-content-active');
         $('#accordion').find('#' + IDreference + ' ul').html( template( data ) );
       } else {
         console.log("Places details error:  " + status);
