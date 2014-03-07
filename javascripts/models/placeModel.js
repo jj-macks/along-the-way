@@ -11,24 +11,28 @@ app.Place = function Place(placeData) {
     var placeLoc = data.geometry.location;
     var newMarker = new google.maps.Marker({
       map: app.map.map,
-      position: placeLoc,
-      title: data.name
+        position: placeLoc,
+        title: data.name
     });
-
     marker = newMarker;
-
   };
 
   constructor.prototype.addMarkerListener = function(){
     google.maps.event.addListener(
-      marker, 'click', function() {
-        /***********************
-        Add opener for accordion element
-        ************************/
-        console.log('works');
-    });
+        marker, 'click', function() {
+          /***********************
+            Add opener for accordion element
+           ************************/
+          console.log('works');
+        });
   };
- return new constructor(); 
+
+  constructor.prototype.setMarker = function(value){
+    marker = value;
+  };
+  constructor.prototype.getMarker = function(value){
+    return marker;
+  };
+
+  return new constructor(); 
 };
-
-

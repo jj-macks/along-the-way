@@ -32,5 +32,12 @@ app.Box = function Box(rbox) {
     return rbox;
   };
   
+  constructor.prototype.clearPlaces = function() {
+    for (var i = 0; i < places.length; i++) {
+      places[i].getMarker().setMap(null);
+      places[i] = null;
+    }
+  };
+
   return new constructor();
 };
