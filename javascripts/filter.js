@@ -10,3 +10,9 @@ function getTypes() {
   }
   return typesParameters;
 }
+
+//turns search radius miles into kilometers and returns value
+function getRadius() {
+  var kilometers = $("#radius option:selected").val() * 1.60934;
+  return kilometers;
+}

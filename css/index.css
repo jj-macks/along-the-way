@@ -57,12 +57,38 @@ input {
 }
 
 /*
+	Media Query
+	----------------------------------------
+*/
+/* Respond to medium sized devices */
+@media screen and (max-width: 900px) {
+
+}
+
+/* Respond to small device */
+@media screen and (max-width: 550px) {
+	input {
+		font-size: 60%;
+	}
+	label {
+		font-size: 60%;
+	}
+	select {
+		width: 33%;
+		font-size: 5%;
+	}
+}
+
+
+/*
 	ADVANCED SEARCH PANEL
 	----------------------------------
 */
 
 #search-panel {
-	width: 55px;
+	max-width:175px;
+	width: 20%;
+	min-width: 185px;
 	height: 100%;
 	float: left;
 	background-color: #3299BB;
@@ -70,14 +96,13 @@ input {
 }
 
 #adv_search {
-	display: none;
 	color: #FFFFFF;
 	margin-left: 0;
 	margin-right: 0;
-	height: 100%;
+	height: 90%;
 }
 
-#adv_search h2 {
+#adv_search h1 {
 	text-shadow: 1px 1px 1px #424242;
 	margin-left: 8%;
 	margin-top: 50px;
@@ -94,7 +119,7 @@ input {
 }
 
 #search-panel label.price {
-	width: 70px;
+	width: 60px;
 }
 
 #filter-accordion {
@@ -113,13 +138,13 @@ input {
 
 .search-input .price {
 	font-weight: bolder;
-	margin: 5%;
+	margin: 2%;
 }
 
 /* Expanding the search panel */
-#search-panel.expandSearch {
-	width: 20%;
-	min-width: 185px;
+#search-panel.collapseSearch {
+	width: 50px;
+	min-width: 30px;
 }
 
 /* Handling the arrows for shrinking and expanding */
@@ -135,7 +160,7 @@ input {
 
 .navicon.left {
 	margin-left: 10%;
-	display: block;
+	display: none;
 }
 
 .navicon.right {
@@ -143,15 +168,15 @@ input {
 	text-align: right;
 	margin-right: 10%;
 	float: right;
-	display: none;
-}
-
-.expandSearch .navicon.left {
-	display: none;
-}
-
-.expandSearch .navicon.right {
 	display: block;
+}
+
+.collapseSearch .navicon.left {
+	display: block;
+}
+
+.collapseSearch .navicon.right {
+	display: none;
 }
 
 /*

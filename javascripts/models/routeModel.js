@@ -31,7 +31,7 @@ app.Route = function Route(map){
       waypoints: waypoints,
       travelMode: google.maps.TravelMode.DRIVING
     };
-    
+
     // Request and build the path from Google maps
     self.buildPath( request, callback );
   };
@@ -42,7 +42,7 @@ app.Route = function Route(map){
         app.directions.directionsRenderer.setDirections( result );
 
         path = result.routes[0].overview_path;
-        
+
         callback();
       }
       // Add error handler
@@ -55,7 +55,7 @@ app.Route = function Route(map){
         point;
 
     for( var i = 1; i < destinations.length - 1; i++ ) {
-      point = { 
+      point = {
         location: destinations[i],
       };
 
@@ -67,7 +67,7 @@ app.Route = function Route(map){
 
   constructor.prototype.createBoxes = function(path, cb) {
     var rboxer = new RouteBoxer();
-    var newBoxes = rboxer.box(path, app.distance);
+    var newBoxes = rboxer.box(path, getRadius());
     boxes = newBoxes;
     cb();
   };
