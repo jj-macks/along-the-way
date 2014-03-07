@@ -60,35 +60,74 @@ input {
 	Media Query
 	----------------------------------------
 */
-/* Respond to medium sized devices */
-@media screen and (max-width: 900px) {
-
-}
 
 /* Respond to small device */
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 850px) {
 	input {
-		font-size: 60%;
+		font-size: 70%;
+	}
+	#filter-accordion {
+		font-size: 70%;
 	}
 	label {
-		font-size: 60%;
+		font-size: 70%;
 	}
 	select {
-		width: 33%;
+		width: 55px;
 		font-size: 5%;
 	}
+	#search-panel {
+		width: 134px !important;
+	}
+	#party-list li {
+		font-size: 70%;
+	}
+	#results-window.expandResults {
+		width: 40% !important;
+	}
 }
-
-
+/*
+@media screen and (max-width: 450px) {
+	#search-panel {
+		height: 20% !important;
+		width: 100% !important;
+		display: block;
+		z-index: 2;
+	}
+	#adv_search {
+		height: 20% !important;
+		width: 100% !important;
+		z-index: 2;
+	}
+	#map-canvas {
+		height: 80%;
+  	padding: 0px;
+  	display: block;
+  	z-index: 1;
+	}
+	#results-window {
+		height: 20% !important;
+		display: block;
+		width: 100% !important;
+	}
+	#push .navicon {
+		display: none;
+	}
+	#pull .navicon {
+		display: none;
+	}
+	h2 {
+		display:none;
+	}
+}
+*/
 /*
 	ADVANCED SEARCH PANEL
 	----------------------------------
 */
 
 #search-panel {
-	max-width:225px;
-	width: 20%;
-	min-width: 185px;
+	width:162px;
 	height: 100%;
 	float: left;
 	background-color: #3299BB;

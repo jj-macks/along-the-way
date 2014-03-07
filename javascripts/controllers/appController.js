@@ -114,7 +114,7 @@ app.appController = {
       // Creates route
       app.route = app.Route( app.map );
       app.route.createRoute();
-    })
+    });
   },
 
   listenForReset: function() {

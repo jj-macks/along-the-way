@@ -55,6 +55,7 @@ app.Place = function Place(placeData, box) {
         $('#accordion').accordion('option', 'active', divIndex); //this works!
         $('#accordion').find('#' + IDreference + ' ul').html('');
         $('#accordion').find('#' + IDreference + ' ul').html( template( place ) );
+        
       } else {
         console.log("Places details error:  " + status);
       }
