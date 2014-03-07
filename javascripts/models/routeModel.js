@@ -54,7 +54,7 @@ app.Route = function Route(map) {
         point;
 
     for( var i = 1; i < destinations.length - 1; i++ ) {
-      point = { 
+      point = {
         location: destinations[i],
       };
 

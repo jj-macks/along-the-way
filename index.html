@@ -39,10 +39,10 @@
          </a>
          <form id="adv_search">
             <div>
-               <h2>Search</h2>
+               <h1>Search</h1>
             </div>
             <div class="search-input horizontal-borders" id='destinations'>
-               <label>Destinations</label>
+               <label>Destinations</label><br>
                <div id="initial-destinations">
                   <input id="start-destination" type="text" placeholder="Party starts here"></input>
                   <input id="end-destination" type="text" placeholder="And ends here"></input>
@@ -57,12 +57,23 @@
                <input id="go" type="button" value="Go!"/>
             </div>
             <div class="search-input horizontal-borders">
-               <label>Keywords</label>
+               <label>Keywords</label><br>
                <input id="keywords" type="text" placeholder="Enter keywords here"></input>
             </div>
             <div class="search-input horizontal-borders">
-               <label>Route Radius (miles)</label>
-               <input type="text" id="radius" placeholder="Distance from route"></input>
+               <label>Search Distance<br>From Route (miles)</label><br>
+               <select id="radius">
+                  <option value="3" selected></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="10">10</option>
+                  <option value="25">25</option>
+                  <option value="50">50</option>
+                  <option value="100">100</option>
+               </select>
             </div>
             <div class="search-input horizontal-borders">
                <label>Min price</label>

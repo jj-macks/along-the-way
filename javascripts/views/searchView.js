@@ -20,7 +20,7 @@ $('#pull').click( function(e) {
    // Toggle the advanced search form
    $('#adv_search').fadeToggle();
    // Toggle the opening and closing of the search panel
-   $('#search-panel').toggleClass('expandSearch');
+   $('#search-panel').toggleClass('collapseSearch');
 });
 
 autoCompletion('add-destination');
