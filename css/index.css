@@ -60,23 +60,33 @@ input {
 	Media Query
 	----------------------------------------
 */
-/* Respond to medium sized devices */
-@media screen and (max-width: 900px) {
-
-}
 
 /* Respond to small device */
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 850px) {
 	input {
-		font-size: 60%;
+		font-size: 70%;
 	}
 	label {
-		font-size: 60%;
+		font-size: 70%;
 	}
 	select {
-		width: 33%;
+		width: 55px;
 		font-size: 5%;
 	}
+	#search-panel {
+		width: 134px;
+	}
+	#party-list li {
+		font-size: 70%;
+	}
+	#results-window.expandResults {
+		width: 40%;
+	}
+	#search-panel {
+		height: 20%;
+		width: 100%;
+	}
+
 }
 
 
@@ -86,9 +96,7 @@ input {
 */
 
 #search-panel {
-	max-width:175px;
-	width: 20%;
-	min-width: 185px;
+	max-width:162px;
 	height: 100%;
 	float: left;
 	background-color: #3299BB;
