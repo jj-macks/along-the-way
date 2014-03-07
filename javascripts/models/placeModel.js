@@ -30,7 +30,7 @@ app.Place = function Place(placeData) {
 
     function getDetailsCallback (place, status) {
       if (status == google.maps.places.PlacesServiceStatus.OK) {
-        console.log(place.name + " : " + place.formatted_phone_number);
+        console.log(place.name + " : " + place.reference);
         //$('#accordion').html('');
         var accordion_details_template = $('#accordion-details-template').html();
         var template = Handlebars.compile( accordion_details_template );
@@ -38,8 +38,10 @@ app.Place = function Place(placeData) {
           place: place
         };
         //data.places = place;
-         $('#accordion').find('ul').html('');
-        $('#accordion').find('ul').html( template( data ) );
+        IDreference = place.reference;
+        $('#accordion').find('#' + IDreference + ' ul').html('');
+        //$('#accordion').children('div').removeClass('ui-accordion-content-active');
+        $('#accordion').find('#' + IDreference + ' ul').html( template( data ) );
       } else {
         console.log("Places details error:  " + status);
       }
