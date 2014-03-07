@@ -29,7 +29,7 @@ app.Place = function Place(placeData, box) {
       };
       box.populateAccordion();
       //box.logBox( data );
-      //app.places.placesService.getDetails(requestDeets, getDetailsCallback);
+      app.places.placesService.getDetails(requestDeets, getDetailsCallback);
     });
 
     function getDetailsCallback (place, status) {
@@ -37,19 +37,20 @@ app.Place = function Place(placeData, box) {
         //console.log(place.name + " : " + place.id);
         var accordion_details_template = $('#accordion-details-template').html();
         var template = Handlebars.compile( accordion_details_template );
-        var data = {
-          place: place
-        };
+        // var data = {
+        //   place: place
+        // };
         IDreference = place.id;
-        var active = $('#accordion').accordion('option', 'active');
+        //var active = $('#accordion').accordion('option', 'active');
         //also make the accordion closed at init and only open when one is clicked so we have details
-        // var divIndexID = $('#accordion').find('#' + IDreference).prev('h4').attr('id');
-        // console.log(divIndexID);
-        // var divIndex = parseInt(divIndexID[divIndexID.length - 1]);
-        // console.log(divIndex);
-        // $('#accordion').accordion('option', 'active', 0);
-        // $('#accordion').find('#' + IDreference + ' ul').html('');
-        // $('#accordion').find('#' + IDreference + ' ul').html( template( data ) );
+        var divIndexID = $('#accordion').find('#' + IDreference).prev('h4').attr('id');
+        //console.log(divIndexID);
+        var divIndex = parseInt(divIndexID[divIndexID.length - 1]);
+        //console.log(divIndex);
+        console.log(place);
+        $('#accordion').accordion('option', 'active', divIndex); //this works!
+        $('#accordion').find('#' + IDreference + ' ul').html('');
+        $('#accordion').find('#' + IDreference + ' ul').html( template( place ) );
       } else {
         console.log("Places details error:  " + status);
       }
