@@ -9,13 +9,13 @@ app.Box = function Box(rbox) {
 
   constructor.prototype.getPlaces = function() {
     var request = {
-      bounds: rbox
-      // keyword: $("input[id=keywords]").val(),
-      // minprice: $("#min-price option:selected").val(),
-      // maxprice: $("#max-price option:selected").val(),
-      // types: ['Starbucks'],
-      // rankby: app.distance
-    };
+      bounds: rbox,
+      keyword: app.keywords,
+      minprice: app.minPrice,
+      maxprice: app.maxPrice,
+      types: app.filters,
+      rankby: app.distance
+    }
     app.places.placesService.nearbySearch(request, self.buildPlaces);
   };
 

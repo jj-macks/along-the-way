@@ -18,9 +18,15 @@ app.appController = {
     // add that destination to the route. Otherwise, alert the user that
     // their input was invalid.
     $("#go").click( function(e) {
+      app.distance = self.getRadius();
+
       var start = $("#start-destination"),
           end = $("#end-destination"),
-          addDest = $('#add-destination');
+          addDest = $('#add-destination'),
+          keywords = $('#keywords'),
+          minPrice = $('#min-price'),
+          maxPrice = $('#max-price'),
+          filters = self.getTypes();
 
       // If the form is populated with both start and end destinations,
       // store the values in the places array
@@ -45,8 +51,18 @@ app.appController = {
         self.appendDestinations( app.destinations[0] );
         self.appendDestinations( app.destinations[1] );
 
-        app.route = app.Route( app.map );
+        // keywords to narrow search 
+        app.keywords = keywords.val();
 
+        // minPrice and maxPrice to narrow search
+        app.minPrice = minPrice.val();
+        app.maxPrice = maxPrice.val();
+
+        // additional filters to narrow search
+        app.filters = filters;
+
+        // Creates route
+        app.route = app.Route( app.map );
         app.route.createRoute();
 
         /*********************************
@@ -101,13 +117,28 @@ app.appController = {
       console.log('Clicked ' + app.destinations );
       $(this).remove();
     });
+  },
+
+ /******************************
+  Helper Functions for Filtering
+  ******************************/
+
+  //turns search radius miles into kilometers and returns value
+  getRadius: function() {
+    var kilometers = $("#radius option:selected").val() * 1.60934;
+    return kilometers;
+  },
+
+  //compiles checkbox values into one string
+  getTypes: function() {
+    var typesParameters = [];
+    var types = $("input[name=types]");
+    for (var i = 0; i < types.length; i++) {
+      if (types[i].checked) {
+        var array = (types[i].value).split(",")
+        typesParameters = typesParameters.concat(array);
+      }
+    }
+    return typesParameters;
   }
 };
-
-
-
-
-
-
-
-
