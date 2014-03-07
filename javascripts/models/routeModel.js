@@ -71,48 +71,48 @@ app.Route = function Route(map) {
       var box = new app.Box(newBoxes[i]);
       boxes.push(box);
     }
-
-  cb();
-};
-
-constructor.prototype.drawBoxes = function(boxes) {
-  boxpolys = new Array(boxes.length);//make sure all methods can access
-  for (var i = 0; i < boxes.length; i++) {
-    boxpolys[i] = new google.maps.Rectangle({
-      bounds: boxes[i].rbox,
-      fillOpacity: 0,
-      strokeOpacity: 1.0,
-      strokeColor: '#000000',
-      strokeWeight: 1,
-      map: app.map.map
-    });
+    cb();
   };
-};
 
-constructor.prototype.clearBoxes = function() {
-  if (boxpolys != null) {
-    for (var i = 0; i < boxpolys.length; i++) {
-      boxpolys[i].setMap(null);
+  constructor.prototype.drawBoxes = function(boxes) {
+    boxpolys = new Array(boxes.length);//make sure all methods can access
+    for (var i = 0; i < boxes.length; i++) {
+      boxpolys[i] = new google.maps.Rectangle({
+        bounds: boxes[i].getBox(),
+        fillOpacity: 0,
+        strokeOpacity: 1.0,
+        strokeColor: '#000000',
+        strokeWeight: 1,
+        map: app.map.map
+      });
+    };
+    boxes[0].getPlaces();
+  };
+
+  constructor.prototype.clearBoxes = function() {
+    if (boxpolys != null) {
+      for (var i = 0; i < boxpolys.length; i++) {
+        boxpolys[i].setMap(null);
+      }
     }
+    boxpolys = null;
+  };
+
+  constructor.prototype.getPath = function() {
+    return path;
   }
-  boxpolys = null;
-};
 
-constructor.prototype.getPath = function() {
-  return path;
-}
+  constructor.prototype.setPath = function(newPath) {
+    path = newPath;
+  }
 
-constructor.prototype.setPath = function(newPath) {
-  path = newPath;
-}
+  constructor.prototype.getBoxes = function() {
+    return boxes;
+  }
 
-constructor.prototype.getBoxes = function() {
-  return boxes;
-}
+  constructor.prototype.setBoxes = function(newBoxes) {
+    boxes = newBoxes;
+  }
 
-constructor.prototype.setBoxes = function(newBoxes) {
-  boxes = newBoxes;
-}
-
-return new constructor();
+  return new constructor();
 };
