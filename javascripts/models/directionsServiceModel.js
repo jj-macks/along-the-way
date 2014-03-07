@@ -7,8 +7,6 @@ app.directions = {
 
   directionsRenderer: null,
 
-  directionsDisplay: null,
-
   init: function() {
     // Create a directions service for computing directions between
     // two or more places
@@ -22,4 +20,5 @@ app.directions = {
     this.directionsRenderer.setMap(app.map.map);
 
   }
+  
 }

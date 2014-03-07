@@ -4,35 +4,46 @@ var app = app || {};
 app.appController = {
 
   init: function() {
-    // Listener for click initiating search
+    // Hides the go button 
+    // Prevents route from being created before destinations list is complete
+    $("#go").hide();
+
+    // Listeners for click...
+    // ...starting destinations list
+    this.listenForStartList();
+    
+    // ...adding to destinations list
+    this.listenForAdd();
+    
+    // ...initiating search
     this.listenForGo();
+
+    // ...reseting search
     this.listenForReset();
 
     // Listener for client removing destination
     this.removeDestinationListener();
   },
 
-  listenForGo: function() {
+  listenForStartList: function() {
     var self = this;
     // Listen for the user hitting the go button. If there is a start and end
     // destination, save and draw the route. If there is a new destination,
     // add that destination to the route. Otherwise, alert the user that
     // their input was invalid.
-    $("#go").click( function(e) {
+    $("#start-list").click( function(e) {
       app.distance = self.getRadius();
 
       var start = $("#start-destination"),
           end = $("#end-destination"),
-          addDest = $('#add-destination'),
-          keywords = $('#keywords'),
-          minPrice = $('#min-price'),
-          maxPrice = $('#max-price'),
+          keywords = $("#keywords"),
+          minPrice = $("#min-price"),
+          maxPrice = $("#max-price"),
           filters = self.getTypes();
 
       // If the form is populated with both start and end destinations,
-      // store the values in the places array
-      if ( validateInput(start.val()) && validateInput(end.val())) {
-      //if ( start.val() !== '' && end.val() !== '') {
+      // store the values in the destinations array
+      if ( validateInput(start.val()) && validateInput(end.val()) ) {
 
         // the starting point
         app.destinations[0] = start.val();
@@ -44,9 +55,14 @@ app.appController = {
         end.val('');
 
         // Hide the initial destination inputs
-        $('#initial-destinations').hide();
-        // Show the add destinations inputs and ul
-        $('#add-destinations').show();
+        $("#initial-destinations").hide();
+        // Show the add destinations input and ul
+        $("#add-destinations").show();
+
+        // Hide inital start list button
+        $("#start-list").hide();
+        // Show the go button (allows route to be created on map)
+        $("#go").show();
 
         // Add the destinations to the ul element holding the destinations
         self.appendDestinations( app.destinations[0] );
@@ -61,38 +77,8 @@ app.appController = {
 
         // additional filters to narrow search
         app.filters = filters;
-
-        // Creates route
-        app.route = app.Route( app.map );
-        app.route.createRoute();
-
-        /*********************************
-        Start the process of creating the route object
-        and everything that goes with it.
-        **********************************/
-        //calcRoute(places);     // draws the initial route between the start and end destinations
       }
-      // If either or both the start and end destinations are not populated,
-      // check if a destination was added.
-      else if (validateInput($("#add-destination").val())) {
-      //else if ($("#add-destination").val() !== '') {
-        // Get the value for the new destination to be added
-        var newDestination = addDest.val();
-
-        // push the new destination to the destinations array
-        app.destinations.push( newDestination );
-
-        // Reset the add destination input
-        addDest.val('');
-
-        // Add this to the destinations ul
-        self.appendDestinations( newDestination );
-
-        /************************
-        Update the route, clear route if necessary
-        Maybe add 'Start Over' button?
-        *************************/
-      }
+      
       // Else, let the user know that their input was invalid
       else {
           // Ideally, we'd just make a message show up in the page
@@ -102,22 +88,55 @@ app.appController = {
     });
   },
 
+  listenForAdd: function() {
+    var self = this;
+
+    $("#add").click( function(e) {
+      if (validateInput($("#add-destination").val())) {
+  
+        // Get the value for the new destination to be added
+        var newDestination = $("#add-destination").val();
+
+        // push the new destination to the destinations array
+        app.destinations.push( newDestination );
+
+        // Reset the add destination input
+        $("#add-destination").val('');
+
+        // Add this to the destinations ul
+        self.appendDestinations( newDestination );
+      }
+    })
+  },
+
+  listenForGo: function() {
+    $("#go").click( function(e) {
+      // Creates route
+      app.route = app.Route( app.map );
+      app.route.createRoute();
+    })
+  },
+
   listenForReset: function() {
     $("#reset").click( function(e) {
       app.route.clearRoute();
     
+      // Show the initial destination inputs
+      $("#initial-destinations").show();
+      // Hide the add destinations inputs and ul
+      $("#add-destinations").hide();
+
       // Reset the values in the form
-      $('#party-list').text('');
+      $("#party-list").text('');
 
-      // Hide the initial destination inputs
-      $('#initial-destinations').show();
-
-      // Show the add destinations inputs and ul
-      $('#add-destinations').hide();
+      // Unhide start list button
+      $("#start-list").show();
 
       // Reset click listeners
-      $('#go').unbind('click');
-      $('#reset').unbind('click');
+      $("#start-list").unbind("click");
+      $("#add").unbind("click");
+      $("#go").unbind("click");
+      $("#reset").unbind("click");
 
       initializeApp();
     })
@@ -132,9 +151,9 @@ app.appController = {
   // refreshes the map
   removeDestinationListener: function() {
     // Bind a click listener to each li element in '#party-list'
-    $('#party-list').delegate( 'li', 'click', function( event ) {
+    $("#party-list").delegate( "li", "click", function( event ) {
       _.pull( app.destinations, this.innerHTML );
-      console.log('Clicked ' + app.destinations );
+      console.log("Clicked " + app.destinations );
       $(this).remove();
     });
   },

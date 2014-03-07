@@ -13,7 +13,7 @@ app.Route = function Route(map) {
   constructor.prototype.createRoute = function() {
     self.createPath( function() {
       self.createBoxes( self.getPath(), function() {
-        self.drawBoxes( self.getBoxes());
+       // self.drawBoxes( self.getBoxes());
       });
     });
   };
@@ -135,7 +135,7 @@ app.Route = function Route(map) {
   constructor.prototype.clearRoute = function() {
     self.clearPlaces();
     self.clearBoxes();
-    self.setBoxes(null);  
+    self.setBoxes(null);
     app.directions.directionsRenderer.setMap(null);
     clearTimeout(searchTimeOutID);
   };
