@@ -131,6 +131,12 @@ input {
 	margin-top: 2.5%;
 }
 
+#reset {
+	font-weight: normal;
+	font-size: 75%;
+	text-decoration: underline;
+}
+
 /* Search panel CSS helper class */
 .search-input {
 	padding: 5%;

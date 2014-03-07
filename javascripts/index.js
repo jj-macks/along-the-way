@@ -1,5 +1,5 @@
 // Run methods to initialize app
-(function initializeApp() {
+function initializeApp() {
   // Initialize and draw the map
   app.map.init();
 
@@ -22,5 +22,6 @@
   Temporarily create the template
   ******************************/
   makeTemplate();
-})();
+};
 
+$(document).ready(initializeApp());

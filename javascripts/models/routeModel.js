@@ -5,6 +5,7 @@ app.Route = function Route(map) {
   var boxes = [];
   var boxpolys;
   var startAtBox = 0;
+  var searchTimeOutID;
   var self = constructor.prototype;
 
   function constructor() { };
@@ -126,9 +127,8 @@ app.Route = function Route(map) {
       boxes[i].getPlaces();
     }
     startAtBox += 10;
-    setTimeout(function(){
+    searchTimeOutID = setTimeout(function(){
       self.searchTenBoxes(boxes);
-
     }, 6000);
   };
 
@@ -137,6 +137,7 @@ app.Route = function Route(map) {
     self.clearBoxes();
     self.setBoxes(null);  
     app.directions.directionsRenderer.setMap(null);
+    clearTimeout(searchTimeOutID);
   };
 
   return new constructor();

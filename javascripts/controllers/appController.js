@@ -6,6 +6,7 @@ app.appController = {
   init: function() {
     // Listener for click initiating search
     this.listenForGo();
+    this.listenForReset();
 
     // Listener for client removing destination
     this.removeDestinationListener();
@@ -70,8 +71,6 @@ app.appController = {
         and everything that goes with it.
         **********************************/
         //calcRoute(places);     // draws the initial route between the start and end destinations
-
-
       }
       // If either or both the start and end destinations are not populated,
       // check if a destination was added.
@@ -101,6 +100,27 @@ app.appController = {
           alert("Please enter both destinations!");
       };
     });
+  },
+
+  listenForReset: function() {
+    $("#reset").click( function(e) {
+      app.route.clearRoute();
+    
+      // Reset the values in the form
+      $('#party-list').text('');
+
+      // Hide the initial destination inputs
+      $('#initial-destinations').show();
+
+      // Show the add destinations inputs and ul
+      $('#add-destinations').hide();
+
+      // Reset click listeners
+      $('#go').unbind('click');
+      $('#reset').unbind('click');
+
+      initializeApp();
+    })
   },
 
   // Appends the list of destinations with the new destination
