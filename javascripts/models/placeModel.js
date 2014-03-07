@@ -11,12 +11,10 @@ app.Place = function Place(placeData) {
     var placeLoc = data.geometry.location;
     var newMarker = new google.maps.Marker({
       map: app.map.map,
-      position: placeLoc,
-      title: data.name
+        position: placeLoc,
+        title: data.name
     });
-
     marker = newMarker;
-
   };
 
   // Listens for click of any place's marker and gets detailed info for that place.
@@ -56,4 +54,12 @@ app.Place = function Place(placeData) {
  return new constructor();
 };
 
+  constructor.prototype.setMarker = function(value){
+    marker = value;
+  };
+  constructor.prototype.getMarker = function(value){
+    return marker;
+  };
 
+  return new constructor();
+};
