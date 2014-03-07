@@ -7,6 +7,7 @@ function makeTemplate( results ) {
     places: results
   };
   $('#accordion').html( template( data ) );
+  $('#accordion').accordion('refresh');
 }
 
 
