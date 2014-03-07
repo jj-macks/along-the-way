@@ -137,7 +137,7 @@
       <script id="accordion-template" type="text/x-handlebars-template">
          {{#places}}
             <h4>{{ name }}</h4>
-            <div>
+            <div id={{ reference }}>
                <ul>
                   {{#each types}}
                      <li>{{this}}</li>
@@ -145,6 +145,16 @@
                </ul>
             </div>
          {{/places}}
+      </script>
+
+      <script id="accordion-details-template" type="text/x-handlebars-template">
+         {{#place}}
+
+                     <li>{{ formatted_phone_number }}</li>
+
+
+
+         {{/place}}
       </script>
       <!--For displaying Google Maps-->
       <div id="map-canvas"></div>

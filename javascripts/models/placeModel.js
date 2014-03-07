@@ -31,7 +31,15 @@ app.Place = function Place(placeData) {
     function getDetailsCallback (place, status) {
       if (status == google.maps.places.PlacesServiceStatus.OK) {
         console.log(place.name + " : " + place.formatted_phone_number);
-        //any property in the detailed object can be accessed similarly
+        //$('#accordion').html('');
+        var accordion_details_template = $('#accordion-details-template').html();
+        var template = Handlebars.compile( accordion_details_template );
+        var data = {
+          place: place
+        };
+        //data.places = place;
+         $('#accordion').find('ul').html('');
+        $('#accordion').find('ul').html( template( data ) );
       } else {
         console.log("Places details error:  " + status);
       }

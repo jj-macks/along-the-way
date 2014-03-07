@@ -94,4 +94,4 @@ var results = [
          "types" : [ "store", "restaurant", "food", "establishment" ],
          "vicinity" : "Harbourside Shopping Centre Shops 433-436, Level 2/Darling Dr, Darling Harbour"
       }];
-    
+
