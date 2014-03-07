@@ -36,7 +36,6 @@ app.Place = function Place(placeData) {
         };
         IDreference = place.id;
         var active = $('#accordion').accordion('option', 'active');
-        //h4 last chars in the id after the dash (from the end, go to the dash, and find following digits)
         //also make the accordion closed at init and only open when one is clicked so we have details
         var divIndexID = $('#accordion').find('#' + IDreference).prev('h4').attr('id');
         console.log(divIndexID);
@@ -51,8 +50,6 @@ app.Place = function Place(placeData) {
 
     };
   };
- return new constructor();
-};
 
   constructor.prototype.setMarker = function(value){
     marker = value;
